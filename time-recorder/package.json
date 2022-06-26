@@ -1,7 +1,10 @@
 {
   "private": true,
   "main": "main/index.js",
-  "productName": "ElectronTypescriptNext",
+  "productName": "Time Recorder",
+  "name": "time_recorder",
+  "version": "0.1.0",
+  "lincense": "UNLICENSED",
   "scripts": {
     "clean": "rimraf dist main renderer/out renderer/.next",
     "dev": "npm run build-electron && electron .",
