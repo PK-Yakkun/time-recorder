@@ -4,96 +4,53 @@ import StopCircleIcon from "@mui/icons-material/StopCircle";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { useStopwatch } from "react-timer-hook";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import AddCircleRoundedIcon from "@mui/icons-material/AddCircleRounded";
+import { Recorder } from "@/components/Recorder";
+import { useState } from "react";
 
 const IndexPage = () => {
-  const stopwatchOffset = new Date();
-  const { seconds, minutes, hours, isRunning, start, pause, reset } =
-    useStopwatch({ autoStart: false, offsetTimestamp: stopwatchOffset });
+  const [viewItem, setViewItem] = useState<JSX.Element[]>([<Recorder />]);
 
+  const onAddButton = () => {
+    setViewItem([...viewItem, <Recorder />]);
+  };
   const styles = {
-    textLarge: {
-      fontSize: "18px",
-    },
-    textSmall: {
-      fontSize: "14px",
-    },
-    icon: {
+    icons: {
+      opacity: ".4",
       transition: ".3s",
       "&:hover": {
+        opacity: ".75",
         cursor: "pointer",
-        opacity: "0.75",
       },
     },
   };
   return (
-    <Box sx={{ color: "#b7b7b7", "-webkit-app-region": "drag" }}>
-      <Stack direction="row" alignItems="center" spacing={1} sx={{ pt: 5 }}>
-        <Box sx={{ pt: "6px" }}>
-          {isRunning ? (
-            <SvgIcon onClick={pause} fontSize="large" sx={styles.icon}>
-              <StopCircleIcon />
-            </SvgIcon>
-          ) : (
-            <SvgIcon onClick={start} fontSize="large" sx={styles.icon}>
-              <PlayCircleFilledWhiteIcon />
-            </SvgIcon>
-          )}
-        </Box>
-
-        <Box>
+    <Box
+      sx={{
+        overflow: "hidden",
+      }}
+    >
+      <Stack direction="column" spacing={1} sx={{ pt: 5, mb: 2 }}>
+        {viewItem.map((item, index) => (
           <Box
-            sx={{
-              "-webkit-app-region": "no-drag",
-              "& input::placeholder": {
-                color: "#b7b7b7",
-              },
-            }}
+            key={index}
+            sx={{ color: "#b7b7b7", "-webkit-app-region": "drag" }}
           >
-            <input
-              type="text"
-              style={{
-                fontSize: "16px",
-                color: "#b7b7b7",
-                background: "none",
-                borderTop: "none",
-                borderRight: "none",
-                borderLeft: "none",
-                borderBottom: "solid 1px #b7b7b7",
-                outline: "none",
-                padding: "0 0 2px 0",
-                marginBottom: "2px",
-              }}
-              placeholder="task name?"
-            />
+            {item}
           </Box>
-          <Stack direction="row" justifyContent="space-between">
-            <Stack direction="row" alignItems="baseline">
-              <Typography sx={styles.textLarge}>{hours}</Typography>
-              <Typography sx={styles.textSmall}>h</Typography>
-              <Typography sx={styles.textLarge}>{minutes}</Typography>
-              <Typography sx={styles.textSmall}>m </Typography>
-              <Typography sx={styles.textLarge}>{seconds}</Typography>
-              <Typography sx={styles.textSmall}>s </Typography>
-            </Stack>
-            <Stack direction="row">
-              <SvgIcon
-                onClick={() =>
-                  reset(
-                    stopwatchOffset,
-                    false
-                  ) as unknown as React.MouseEventHandler<React.ReactNode>
-                }
-                sx={styles.icon}
-              >
-                <RestartAltIcon />
-              </SvgIcon>
-              <SvgIcon sx={styles.icon}>
-                <DeleteForeverIcon />
-              </SvgIcon>
-            </Stack>
-          </Stack>
-        </Box>
+        ))}
       </Stack>
+      <Box sx={{ textAlign: "center" }}>
+        <SvgIcon
+          onClick={() => onAddButton()}
+          fontSize="large"
+          htmlColor="#b7b7b7"
+          sx={styles.icons}
+        >
+          <AddCircleRoundedIcon />
+        </SvgIcon>
+      </Box>
     </Box>
   );
 };
