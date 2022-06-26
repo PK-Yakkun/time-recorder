@@ -12,13 +12,13 @@ app.on("ready", async () => {
   await prepareNext("./renderer");
 
   const mainWindow = new BrowserWindow({
-    width: 220,
-    height: 400,
+    width: 250,
+    height: 300,
+    maxHeight: 400,
     x: 9999,
     y: -9999,
     hasShadow: false,
     resizable: false,
-    opacity: 1,
     transparent: true,
     titleBarStyle: "hiddenInset",
     fullscreenable: false,
