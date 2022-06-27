@@ -1,10 +1,4 @@
-import { Typography, Box, Stack, SvgIcon, TextField } from "@mui/material";
-import PlayCircleFilledWhiteIcon from "@mui/icons-material/PlayCircleFilledWhite";
-import StopCircleIcon from "@mui/icons-material/StopCircle";
-import RestartAltIcon from "@mui/icons-material/RestartAlt";
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-import { useStopwatch } from "react-timer-hook";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
+import { Box, Stack, SvgIcon } from "@mui/material";
 import AddCircleRoundedIcon from "@mui/icons-material/AddCircleRounded";
 import { Recorder } from "@/components/Recorder";
 import { useState } from "react";
