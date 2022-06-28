@@ -4,10 +4,15 @@ import { Recorder } from "@/components/Recorder";
 import { useState } from "react";
 
 const IndexPage = () => {
-  const [viewItem, setViewItem] = useState<JSX.Element[]>([<Recorder />]);
-
+  const onDeleteButton = (e: any) => {
+    const a = viewItem.splice(e, 1);
+    setViewItem(a);
+  };
+  const [viewItem, setViewItem] = useState<JSX.Element[]>([
+    <Recorder onDeleteButton={onDeleteButton} />,
+  ]);
   const onAddButton = () => {
-    setViewItem([...viewItem, <Recorder />]);
+    setViewItem([...viewItem, <Recorder onDeleteButton={onDeleteButton} />]);
   };
   const styles = {
     icons: {

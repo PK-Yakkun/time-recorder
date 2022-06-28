@@ -4,8 +4,13 @@ import StopCircleIcon from "@mui/icons-material/StopCircle";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import RemoveCircleRoundedIcon from "@mui/icons-material/RemoveCircleRounded";
 import { useStopwatch } from "react-timer-hook";
+import { jsx } from "@emotion/react";
 
-export const Recorder = () => {
+interface RecorderProps {
+  onDeleteButton(index: number): void;
+}
+
+export const Recorder = ({ onDeleteButton }: RecorderProps) => {
   const stopwatchOffset = new Date();
   const { seconds, minutes, hours, isRunning, start, pause, reset } =
     useStopwatch({ autoStart: false, offsetTimestamp: stopwatchOffset });
