@@ -97,7 +97,7 @@ export const Recorder = ({ onDeleteButton }: RecorderProps) => {
               <RestartAltIcon />
             </SvgIcon>
             <SvgIcon fontSize="small" sx={[styles.icon, { mt: "2px" }]}>
-              <RemoveCircleRoundedIcon />
+              <RemoveCircleRoundedIcon onClick={() => onDeleteButton()} />
             </SvgIcon>
           </Stack>
         </Stack>
