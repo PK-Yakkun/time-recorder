@@ -12,31 +12,21 @@ const IndexPage = () => {
   const stopwatchOffset = new Date();
   const { seconds, minutes, hours, isRunning, start, pause, reset } =
     useStopwatch({ autoStart: false, offsetTimestamp: stopwatchOffset });
-  // const onDeleteButton = (e: any) => {
-  //   const a = viewItem.splice(e, 1);
-  //   setViewItem(a);
-  // };
-  // const [viewItem, setViewItem] = useState<JSX.Element[]>([
-  //   <Recorder onDeleteButton={onDeleteButton} />,
-  // ]);
-  // const onAddButton = () => {
-  //   setViewItem([...viewItem, <Recorder onDeleteButton={onDeleteButton} />]);
-  // };
 
-  const [viewItem, setViewItem] = useState<any[]>([1]);
-
+  const [viewItem, setViewItem] = useState<number[]>([0]);
+  console.log(`処理後: ` + viewItem);
   const onAddButton = () => {
-    const countUpItem = viewItem.length + 1;
-    setViewItem([...viewItem, countUpItem]);
+    console.log(`push時: ` + viewItem);
+    console.log(viewItem.length);
+    const number = viewItem.length;
+    setViewItem([...viewItem, number]);
   };
-  const onDeleteButton = (index: any) => {
+  const onDeleteButton = (index: number) => {
     console.log(`受け取ったindex: ` + index);
-    const newItems = [...viewItem];
-    console.log(`削除前: ` + newItems);
-    const a = newItems.splice(index + 1, 1);
-    console.log(`削除後: ` + a);
-    setViewItem([...a]);
-    console.log(`set後` + viewItem);
+    console.log(`before: ` + viewItem);
+    const newItems = viewItem.filter((item, i) => i !== index);
+    console.log(`after: ` + newItems);
+    setViewItem(newItems);
   };
   const styles = {
     icons: {
