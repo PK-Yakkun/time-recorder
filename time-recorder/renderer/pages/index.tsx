@@ -63,7 +63,7 @@ const IndexPage = () => {
       <Stack direction="column" spacing={1} sx={{ pt: 5, mb: 2 }}>
         {viewItem.map((number, index) => (
           <Box
-            key={index}
+            key={number}
             sx={{ color: "#b7b7b7", "-webkit-app-region": "drag" }}
           >
             <Stack direction="row" alignItems="center" spacing={1}>
