@@ -51,7 +51,6 @@ export const Recorder = ({ onDeleteButton, id, value }: RecorderProps) => {
         <Box
           sx={{
             "-webkit-app-region": "no-drag",
-
             "& input::placeholder": {
               opacity: ".5",
             },
