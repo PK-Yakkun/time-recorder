@@ -7,31 +7,32 @@ import { useStopwatch } from "react-timer-hook";
 
 interface RecorderProps {
   onDeleteButton(index: number): void;
+  id: number;
+  value: string;
 }
 
-export const Recorder = ({ onDeleteButton }: RecorderProps) => {
+const styles = {
+  textLarge: {
+    fontSize: "18px",
+  },
+  textSmall: {
+    fontSize: "14px",
+  },
+  icon: {
+    color: "#b7b7b7",
+    transition: ".3s",
+    "&:hover": {
+      cursor: "pointer",
+      opacity: ".75",
+    },
+  },
+};
+
+export const Recorder = ({ onDeleteButton, id, value }: RecorderProps) => {
   const stopwatchOffset = new Date();
   const { seconds, minutes, hours, isRunning, start, pause, reset } =
     useStopwatch({ autoStart: false, offsetTimestamp: stopwatchOffset });
 
-  const styles = {
-    textCommon: {
-      color: isRunning ? "#63D37F" : "#b7b7b7",
-    },
-    textLarge: {
-      fontSize: "18px",
-    },
-    textSmall: {
-      fontSize: "14px",
-    },
-    icon: {
-      transition: ".3s",
-      "&:hover": {
-        cursor: "pointer",
-        opacity: ".75",
-      },
-    },
-  };
   return (
     <Stack direction="row" alignItems="center" spacing={1}>
       <Box sx={{ pt: "6px" }}>
@@ -46,12 +47,12 @@ export const Recorder = ({ onDeleteButton }: RecorderProps) => {
         )}
       </Box>
 
-      <Box>
+      <Box sx={{ color: isRunning ? "#63D37F" : "#b7b7b7" }}>
         <Box
           sx={{
             "-webkit-app-region": "no-drag",
+
             "& input::placeholder": {
-              color: "#b7b7b7",
               opacity: ".5",
             },
           }}
@@ -60,7 +61,6 @@ export const Recorder = ({ onDeleteButton }: RecorderProps) => {
             type="text"
             style={{
               fontSize: "16px",
-              color: isRunning ? "#63D37F" : "#b7b7b7",
               background: "none",
               borderTop: "none",
               borderRight: "none",
@@ -72,11 +72,11 @@ export const Recorder = ({ onDeleteButton }: RecorderProps) => {
               padding: "0 0 2px 0",
               marginBottom: "2px",
             }}
-            placeholder="task name?"
+            placeholder={`${value}`}
           />
         </Box>
         <Stack direction="row" justifyContent="space-between">
-          <Stack direction="row" alignItems="baseline" sx={styles.textCommon}>
+          <Stack direction="row" alignItems="baseline">
             <Typography sx={styles.textLarge}>{hours}</Typography>
             <Typography sx={styles.textSmall}>h</Typography>
             <Typography sx={styles.textLarge}>{minutes}</Typography>
@@ -97,7 +97,7 @@ export const Recorder = ({ onDeleteButton }: RecorderProps) => {
               <RestartAltIcon />
             </SvgIcon>
             <SvgIcon fontSize="small" sx={[styles.icon, { mt: "2px" }]}>
-              <RemoveCircleRoundedIcon onClick={() => onDeleteButton()} />
+              <RemoveCircleRoundedIcon onClick={() => onDeleteButton(id)} />
             </SvgIcon>
           </Stack>
         </Stack>
