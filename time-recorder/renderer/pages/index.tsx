@@ -73,7 +73,7 @@ const IndexPage = () => {
             />
           </Box>
         ))}
-        <Box sx={{ pt: 3 }}>
+        <Box sx={{ pt: 2 }}>
           <SvgIcon
             onClick={() => onAddButton()}
             fontSize="large"

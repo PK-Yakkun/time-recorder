@@ -18,6 +18,16 @@ const styles = {
   textSmall: {
     fontSize: "14px",
   },
+  input: {
+    fontSize: "16px",
+    background: "none",
+    borderTop: "none",
+    borderRight: "none",
+    borderLeft: "none",
+    outline: "none",
+    padding: "0 0 2px 0",
+    marginBottom: "2px",
+  },
   icon: {
     color: "#b7b7b7",
     transition: ".3s",
@@ -28,7 +38,13 @@ const styles = {
   },
 };
 
-export const Recorder = ({ onDeleteButton, id, value }: RecorderProps) => {
+/**
+ * レコーダーコンポーネント
+ * @param onDeleteButton 削除ボタン押下時の関数
+ * @param id 自身のid
+ * @returns レコーダーコンポーネント
+ */
+export const Recorder = ({ onDeleteButton, id }: RecorderProps) => {
   const stopwatchOffset = new Date();
   const { seconds, minutes, hours, isRunning, start, pause, reset } =
     useStopwatch({ autoStart: false, offsetTimestamp: stopwatchOffset });
@@ -58,20 +74,15 @@ export const Recorder = ({ onDeleteButton, id, value }: RecorderProps) => {
         >
           <input
             type="text"
-            style={{
-              fontSize: "16px",
-              background: "none",
-              borderTop: "none",
-              borderRight: "none",
-              borderLeft: "none",
-              borderBottom: isRunning
-                ? "solid 1px #63D37F"
-                : "solid 1px #b7b7b7",
-              outline: "none",
-              padding: "0 0 2px 0",
-              marginBottom: "2px",
-            }}
-            placeholder={`${value}`}
+            style={
+              (styles.input,
+              {
+                borderBottom: isRunning
+                  ? "solid 1px #63D37F"
+                  : "solid 1px #b7b7b7",
+              })
+            }
+            placeholder={`task ${id + 1}`}
           />
         </Box>
         <Stack direction="row" justifyContent="space-between">
