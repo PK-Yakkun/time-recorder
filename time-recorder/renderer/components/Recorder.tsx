@@ -45,9 +45,8 @@ const styles = {
  * @returns レコーダーコンポーネント
  */
 export const Recorder = ({ onDeleteButton, id }: RecorderProps) => {
-  const stopwatchOffset = new Date();
   const { seconds, minutes, hours, isRunning, start, pause, reset } =
-    useStopwatch({ autoStart: false, offsetTimestamp: stopwatchOffset });
+    useStopwatch({ autoStart: false });
 
   return (
     <Stack direction="row" alignItems="center" spacing={1}>
@@ -98,7 +97,7 @@ export const Recorder = ({ onDeleteButton, id }: RecorderProps) => {
             <SvgIcon
               onClick={() =>
                 reset(
-                  stopwatchOffset,
+                  undefined,
                   false
                 ) as unknown as React.MouseEventHandler<React.ReactNode>
               }
