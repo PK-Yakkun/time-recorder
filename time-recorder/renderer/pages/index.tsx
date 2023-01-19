@@ -1,7 +1,7 @@
 import { Box, Stack, SvgIcon } from "@mui/material";
 import AddCircleRoundedIcon from "@mui/icons-material/AddCircleRounded";
 import { Recorder } from "@/components/Recorder";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 type ViewItem = {
   id: number;
@@ -26,7 +26,7 @@ const IndexPage = () => {
   /**
    * 追加ボタン押下時の処理
    */
-  const onAddButton = async () => {
+  const onAddButton = useCallback(async () => {
     /** viewItemステートが空かそれ以外かで分岐 */
     if (viewItem.length === 0) {
       /** id:0 の要素を追加 */
@@ -36,17 +36,20 @@ const IndexPage = () => {
       const itemLastId = (await viewItem[viewItem.length - 1].id) + 1;
       await setViewItem([...viewItem, { id: itemLastId, value: "" }]);
     }
-  };
+  }, [viewItem]);
 
   /**
    * 削除ボタン押下時の処理
    * mapされた各要素に渡して子で利用する
    * @param id 削除ボタンが押下された要素のid
    */
-  const onDeleteButton = async (id: number) => {
-    let deletedItem = await viewItem.filter((item) => item.id !== id);
-    setViewItem(deletedItem);
-  };
+  const onDeleteButton = useCallback(
+    async (id: number) => {
+      let deletedItem = await viewItem.filter((item) => item.id !== id);
+      setViewItem(deletedItem);
+    },
+    [viewItem]
+  );
 
   return (
     <Box
