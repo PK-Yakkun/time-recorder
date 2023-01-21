@@ -4,7 +4,7 @@
   "productName": "Time Recorder",
   "name": "time_recorder",
   "version": "0.1.0",
-  "lincense": "UNLICENSED",
+  "lincense": "MIT",
   "scripts": {
     "clean": "rimraf dist main renderer/out renderer/.next",
     "dev": "npm run build-electron && electron .",
