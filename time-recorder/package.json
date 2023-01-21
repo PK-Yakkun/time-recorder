@@ -1,10 +1,15 @@
 {
-  "private": true,
+  "private": false,
   "main": "main/index.js",
   "productName": "Time Recorder",
   "name": "time_recorder",
-  "version": "0.1.0",
-  "lincense": "MIT",
+  "version": "1.0.0",
+  "author": "PK Yakkun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PK-Yakkun/time-recorder/issues"
+  },
+  "homepage": "https://pk-yakkun.com/",
   "scripts": {
     "clean": "rimraf dist main renderer/out renderer/.next",
     "dev": "npm run build-electron && electron .",
