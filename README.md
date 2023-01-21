@@ -1,7 +1,31 @@
-# Time Record
+<h1 align="center">
+  <br>
+  <img src="https://user-images.githubusercontent.com/77062779/213844757-9ef00924-45a9-4385-b796-e8c90c33abd2.png" alt="Time Recorder" width="200">
+  <br>
+  Time Recorder
+  <br>
+</h1>
 
-タスクごとの実績工数を記録することができるタイマーアプリです。
-オーバーレイで表示されるため常にチェックすることができます。
+<div align="center">
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+</div>
+
+<div align="center">
+
+https://user-images.githubusercontent.com/77062779/213846174-e115f432-5311-4789-b9e6-33a96aaed672.MOV
+
+</div>
+
+
+
+# Time Recorder
+
+複数のタイマーをオーバーレイで表示することができるアプリです。
+タスクの実績工数や、ゆで卵の殻向きにどれだけ時間が掛かったかを計測するのに便利です。
+
+
 
 ## DEMO
 
