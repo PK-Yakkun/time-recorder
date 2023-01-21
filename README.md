@@ -16,6 +16,8 @@
 
 https://user-images.githubusercontent.com/77062779/213846662-b112cdce-dfa1-4687-9ac1-f8f928ec161b.MOV
 
+DL(Mac): https://drive.google.com/drive/folders/1mydOYBSuqx6L8cyZaKV5NKcPrGtuqzDq?usp=share_link
+
 </div>
 
 
@@ -25,7 +27,9 @@ https://user-images.githubusercontent.com/77062779/213846662-b112cdce-dfa1-4687-
 複数のタイマーをオーバーレイで表示することができるアプリです。</br>
 タスクの実績工数の記録や、ゆで卵の殻剥きにどれだけ時間が掛かったかを計測するのに便利です。
 
+## Download
 
+DL(Mac): https://drive.google.com/drive/folders/1mydOYBSuqx6L8cyZaKV5NKcPrGtuqzDq?usp=share_link
 
 ## 各要素と機能
 
